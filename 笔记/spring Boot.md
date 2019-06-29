@@ -1024,5 +1024,78 @@ return requestHandler;
 }
 ```
 
+```java
+@ConfigurationProperties(prefix = "spring.resources", ignoreUnknownFields = false)
+public class ResourceProperties implements ResourceLoaderAware {
+//可以设置和静态资源有关的参数，缓存时间等
+```
 
+发现springboot指定所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源； 
+
+==webjars解释：以jar包的方式引入静态资源；== 
+
+[webjars坐标网站](http://www.webjars.org/)
+
+示例：![](assets/Snipaste_2019-06-29_21-00-57.png)
+
+对此资源的访问地址;
+
+localhost:8080/webjars/jquery/3.3.1/jquery.js
+
+```xml
+<!‐‐引入jquery‐webjar‐‐>在访问的时候只需要写webjars下面资源的名称即可
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jquery</artifactId>
+    <version>3.3.1</version>
+</dependency
+```
+
+**源码PesoureProperties.java中描述对于第三方导入的静态资源文件规则**
+
+=="/**" 访问当前项目的任何资源，都去（静态资源的文件夹）找映射==
+
+```
+"classpath:/META‐INF/resources/",
+"classpath:/resources/",
+"classpath:/static/",
+"classpath:/public/"
+"/"：当前项目的根路径
+```
+
+![](assets/Snipaste_2019-06-29_21-17-33.png)
+
+示例：
+
+![](assets/Snipaste_2019-06-29_21-13-48.png)
+
+![](assets/Snipaste_2019-06-29_21-47-17.png)
+
+==首页，欢迎页设置==
+
+欢迎页； 静态资源默认寻找文件夹下的所有index.html页面；被"/**"映射； 
+
+![](assets/Snipaste_2019-06-29_21-51-59.png)
+
+
+
+==所有的 **/favicon.ico 都是在静态资源文件下找；==
+
+ico：它是Windows的图标文件格式的一种，图标文件可以存储单个图案、多尺寸、多色板的图标文件。一个图标实际上是多张不同格式的图片的集合体，并且还包含了一定的透明区域。图标是具有明确指代含义的计算机图形。其中桌面图标是软件标识，界面中的图标是功能标识。
+
+示例：![](assets/Snipaste_2019-06-29_21-54-20.png)
+
+
+
+### 自定义静态资源文件夹
+
+**如果修改静态资源文件的默认配置**
+
+可以在application.properties配置文件中进行修改。
+
+```properties
+spring.resources.static-locations=classpath:/此处进行指定文件夹
+# 如果配置多个可以提使用,分隔。
+# ！！！！注意，如果配制了自定义静态资源文件夹，那么默认的资源文件夹将会失效
+```
 
