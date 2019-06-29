@@ -325,7 +325,7 @@ user.profession.wage
 
 #### @Value获取值和@ConfigurationProperties获取值比较：
 
-=![](assets/Snipaste_2019-06-29_13-11-14-1561785525289.png)
+![](assets/Snipaste_2019-06-29_13-11-14-1561785525289.png)
 
 ==注意：@Value不支持复杂类型封装，如集合，对象等等。支持基础类型==
 
@@ -341,7 +341,7 @@ user.profession.wage
 
 @Validated此注解配合@ConfigurationPropertie进行jsr303数据校验
 
-![](assets\Snipaste_2019-06-29_13-13-19.png)
+![](assets/Snipaste_2019-06-29_13-13-19.png)
 
 
 
