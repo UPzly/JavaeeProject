@@ -325,7 +325,7 @@ user.profession.wage
 
 #### @Value获取值和@ConfigurationProperties获取值比较：
 
-![](assets\Snipaste_2019-06-29_13-11-14.png)
+=![](assets/Snipaste_2019-06-29_13-11-14-1561785525289.png)
 
 ==注意：@Value不支持复杂类型封装，如集合，对象等等。支持基础类型==
 
@@ -353,7 +353,7 @@ user.profession.wage
 
 标明从user.properties配置文件中获取数据
 
-![](assets\Snipaste_2019-06-29_13-20-27.png)
+=![](assets/Snipaste_2019-06-29_13-20-27.png)
 
 @ImportResource：导入Spring的配置文件，让配置文件里面的内容生效；
 
@@ -381,7 +381,7 @@ http://www.springframework.org/schema/beans/spring‐beans.xsd">
 
 ​		返回值为boolean值
 
-![](assets\Snipaste_2019-06-29_13-22-19.png)
+![](assets/Snipaste_2019-06-29_13-22-19.png)
 
 在springboot中不推荐xml配置这种方式：
 
@@ -649,7 +649,7 @@ public static final Charset DEFAULT_CHARSET = Charset.forName("UTF‐8");
 
 ==可以通过启用 debug=true属性；来让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效==
 
-![](assets\Snipaste_2019-06-29_14-50-34.png)
+![](assets/Snipaste_2019-06-29_14-50-34.png)
 
 ```java
 =========================
@@ -716,7 +716,7 @@ logger.info("Hello World");
 
 图示：
 
-![](assets\Snipaste_2019-06-29_15-01-20.png)
+!![](assets/Snipaste_2019-06-29_15-01-20.png)
 
 每一个日志的实现框架都有自己的配置文件。使用slf4j以后，配置文件还是做成日志实现框架自己本身的配置文件； 
 
@@ -725,7 +725,7 @@ logger.info("Hello World");
 a（slf4j+logback）: Spring（commons-logging）、Hibernate（jboss-logging）、MyBatis、xxxx
 统一日志记录，即使是别的框架和我一起统一使用slf4j进行输出
 
-![](assets\Snipaste_2019-06-29_15-06-30.png)
+![](assets/Snipaste_2019-06-29_15-06-30.png)
 
 **如何让系统中所有的日志都统一到slf4j**
 ==1、将系统中其他日志框架先排除出去；==
@@ -752,7 +752,7 @@ SpringBoot使用它来做日志功能；
 
 底层依赖关系 :
 
-![](assets\Snipaste_2019-06-29_15-13-19.png)
+![](assets/Snipaste_2019-06-29_15-13-19.png)
 
 总结：
 1）、SpringBoot底层也是使用slf4j+logback的方式进行日志记录
@@ -767,7 +767,7 @@ static String UNSUPPORTED_OPERATION_IN_JCL_OVER_SLF4J =
 static LogFactory logFactory = new SLF4JLogFactory();
 ```
 
-![](assets\Snipaste_2019-06-29_15-14-22.png)
+![](assets/Snipaste_2019-06-29_15-14-22.png)
 
 4）、如果我们要引入其他框架,一定要把这个框架的默认日志依赖移除掉
 	Spring框架用的是commons-logging； 
