@@ -804,7 +804,7 @@ public void contextLoads() {
 //可以调整输出的日志级别；日志就只会在这个级别以以后的高级别生效
 logger.trace("这是trace日志...");
 logger.debug("这是debug日志...");
-//SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；root
+//SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；eroot
 级别
 logger.info("这是info日志...");
 logger.warn("这是warn日志...");
@@ -1083,7 +1083,9 @@ localhost:8080/webjars/jquery/3.3.1/jquery.js
 
 ico：它是Windows的图标文件格式的一种，图标文件可以存储单个图案、多尺寸、多色板的图标文件。一个图标实际上是多张不同格式的图片的集合体，并且还包含了一定的透明区域。图标是具有明确指代含义的计算机图形。其中桌面图标是软件标识，界面中的图标是功能标识。
 
-示例：![](assets/Snipaste_2019-06-29_21-54-20.png)
+示例：
+
+![](assets/Snipaste_2019-06-29_21-54-20.png)
 
 
 
@@ -1115,8 +1117,10 @@ springboot中推荐使用Thymeleaf 模板引擎
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring‐boot‐starter‐thymeleaf</artifactId>
-    2.1.6
 </dependency>
+查看下载的jar包版本如果不合适可以进行覆盖切换
+
+
 切换thymeleaf版本
 <properties>
 	<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
@@ -1126,6 +1130,62 @@ springboot中推荐使用Thymeleaf 模板引擎
 </properties>
 ```
 
+#### Thymeleaf语法
+
+```java
+@ConfigurationProperties(prefix = "spring.thymeleaf")
+public class ThymeleafProperties {
+private static final Charset DEFAULT_ENCODING = Charset.forName("UTF‐8");
+private static final MimeType DEFAULT_CONTENT_TYPE = MimeType.valueOf("text/html");
+public static final String DEFAULT_PREFIX = "classpath:/templates/";
+public static final String DEFAULT_SUFFIX = ".html";
+```
+
+==只要我们把HTML页面放在classpath:/templates/，thymeleaf就能自动渲染；==
+
+​	![](assets/Snipaste_2019-06-30_12-33-19.png)
+
+使用thymeleaf语法：
+
+​	1、导入命名空间：
+
+```html
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+```
+
+​	2、使用thymeleaf语法：
+
+```java
+Controller层
+@RequestMapping("/home")
+    public String hello(Map<String,Object> map) {
+        map.put("hello","2333就你？");
+        return "home";
+    }
+```
+
+```html
+html页面
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    
+<h2>首页啦啦啦</h2>
+使用thymeleaf语法
+导入thymeleaf语法空间
+<\html lang="en" xmlns:th="http://www.thymeleaf.org">
+<br>
+<div th:text="${hello}"></div>
+    
+</body>
+</html>
+```
+
+#### thymeleaf语法规则
 
 
-​	
+
