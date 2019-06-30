@@ -1099,3 +1099,33 @@ spring.resources.static-locations=classpath:/此处进行指定文件夹
 # ！！！！注意，如果配制了自定义静态资源文件夹，那么默认的资源文件夹将会失效
 ```
 
+### 模板引擎
+
+常见模板引擎：JSP、Velocity、Freemarker、Thymeleaf 
+
+![](assets/Snipaste_2019-06-30_09-32-14.png)
+
+springboot中推荐使用Thymeleaf 模板引擎
+
+####　使用方法
+
+在pom.xml文件中引入Thymeleaf的jar包
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring‐boot‐starter‐thymeleaf</artifactId>
+    2.1.6
+</dependency>
+切换thymeleaf版本
+<properties>
+	<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+    <!‐‐ 布局功能的支持程序 thymeleaf3主程序 layout2以上版本 ‐‐>
+    <!‐‐ thymeleaf2 layout1‐‐>
+    <thymeleaf‐layout‐dialect.version>2.2.2</thymeleaf‐layout‐dialect.version>
+</properties>
+```
+
+
+
+​	
