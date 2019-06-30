@@ -1187,5 +1187,9 @@ html页面
 
 #### thymeleaf语法规则
 
+1、th:text改变当前元素内的文本内容
 
+th：代表任意html属性：来替换原生属性的值
+
+常用th语法列表：![](assets/Snipaste_2019-06-30_16-57-56.png)
 
